@@ -18,7 +18,6 @@ libraryDependencies <++= liftVersion { v =>
 }    
 
 libraryDependencies <++= scalaVersion { sv => 
-  "org.apache.sanselan" % "sanselan" % "0.97-incubator" ::
   "org.scala-tools.testing" %% "specs" %  (sv match { 
       case "2.8.0" => "1.6.5"
       case "2.9.1" => "1.6.9"
