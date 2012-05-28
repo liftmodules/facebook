@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.liftweb {
+package net.liftmodules {
 package ext_api {
 package facebook {
 
@@ -25,7 +25,7 @@ import java.util.Date
 
 import xml.{Node, XML, NodeSeq}
 
-import util.Helpers._
+import net.liftweb.util.Helpers._
 
 object FacebookRestApi {
   def apiKey = System.getProperty("com.facebook.api_key")
