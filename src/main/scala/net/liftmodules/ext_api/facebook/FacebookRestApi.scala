@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2011 WorldWide Conferencing, LLC
+ * Copyright 2007-2013 WorldWide Conferencing, LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -107,7 +107,7 @@ object FacebookClient {
     callMethod(meth)
 
   def fromSession(session: FacebookSession) : FacebookClient[Node] = {
-    new FacebookClient(session, xmlParser,FacebookFormat.xml)
+    new FacebookClient(session, xmlParser,FacebookFormat.XML)
   }
 
   def fromAuthToken(authToken: String) : Option[FacebookClient[Node]] = {
@@ -129,8 +129,9 @@ object FacebookClient {
   }
 }
 
-object FacebookFormat extends Enumeration("XML", "JSON"){
-  val xml, json = Value
+object FacebookFormat extends Enumeration {
+  type FacebookFormat = Value
+  val XML, JSON = Value
 }
 
 class FacebookClient[T](val apiKey: String, val secret: String, val session: FacebookSession, parser: InputStream=>T, format: FacebookFormat.Value) {

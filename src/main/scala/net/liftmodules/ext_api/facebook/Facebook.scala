@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2010 WorldWide Conferencing, LLC
+ * Copyright 2007-2013 WorldWide Conferencing, LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,13 +45,13 @@ object Facebook {
     case _ => Empty
   }
 
-  def userId_! : Int = userId.open_!
+  def userId_! : Int = userId.openOr(sys.error("No userid"))
 
   private def authToken : Box[String] = S.param("auth_token")
 
   def sessionKey : Box[String] = S.param("fb_sig_session_key")
 
-  def sessionKey_! : String = sessionKey.open_!
+  def sessionKey_! : String = sessionKey.openOr(sys.error("No session key"))
 
   def loginUrl: String = "http://www.facebook.com/login.php?api_key=" + FacebookRestApi.apiKey + "&v=1.0"
   def addUrl : String = "http://www.facebook.com/add.php?api_key=" + FacebookRestApi.apiKey
