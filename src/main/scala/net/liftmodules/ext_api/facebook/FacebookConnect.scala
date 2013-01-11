@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 WorldWide Conferencing, LLC
+ * Copyright 2010-2013 WorldWide Conferencing, LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ class FacebookConnect(apiKey:String, apiSecret:String) {
 
   def session:Box[FacebookSession] = for (p <- verifyCookiesSig; s <- toSession(p)) yield s
   
-  def client:Box[FacebookClient[Node]] = session.map(session => new FacebookClient(apiKey, apiSecret, session, FacebookClient.xmlParser, FacebookFormat.xml))
+  def client:Box[FacebookClient[Node]] = session.map(session => new FacebookClient(apiKey, apiSecret, session, FacebookClient.xmlParser, FacebookFormat.XML))
   
   def verifyParams(params: List[(String,String)], sig: String):Box[List[(String,String)]] = {
     val actualSig = FacebookClient.genSignature(params, apiSecret)
