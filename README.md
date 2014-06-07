@@ -7,6 +7,11 @@ This module provides integration with Facebook.
 
     "net.liftmodules" %% "facebook_2.6" % "1.3"
 
+*Lift 2.6.x* for Scala 2.11.x:
+
+    "net.liftmodules" %% "facebook_2.6" % "1.3-SNAPSHOT"
+
+
 *Lift 2.5.x* for Scala 2.9 and 2.10:
 
     "net.liftmodules" %% "facebook_2.5" % "1.3"
